@@ -1,0 +1,17 @@
+{
+  "name": "xstats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "electron": "^36.2.0",
+    "electron-better-ipc": "^2.0.1",
+    "xbox-webapi": "^1.4.2"
+  }
+}

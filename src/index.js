@@ -20,6 +20,7 @@ const window = {
 
 const xboxClient = {
     client: XboxApiClient,
+    accGames: Array,
     
     get getClient() {
         return this.client
@@ -56,7 +57,11 @@ app.whenReady().then(() => {
         client.isAuthenticated().then(function(){
             // User is authenticated
             console.log('User is authenticated.')
-            xboxAPI.getTitleHistory()
+            xboxAPI.getTitleHistory().then((games) => {
+                games.forEach((game) => {
+                    console.log("game: " + JSON.stringify(game))
+                })
+            })
         
         }).catch(function(error){
             // User is not authenticated
@@ -67,6 +72,9 @@ app.whenReady().then(() => {
         
                 client.isAuthenticated().then(function(){
                     xboxAPI.getTitleHistory()
+                    xboxClient.accGames.forEach((game) => {
+                        console.log(JSON.stringify(game))
+                    })
                 }).catch(function(error){
                     console.log('error', error)
                 })
